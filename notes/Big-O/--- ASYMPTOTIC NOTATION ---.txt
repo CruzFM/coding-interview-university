@@ -1,0 +1,34 @@
+--- ASYMPTOTIC NOTATION ---
+
+Una forma de medir la eficiencia de un algoritmo
+
+--Notacion Big O
+es una forma de medir como el modo de ejecucion de un programa crece de manera asintotica.
+Es decir, mientras el tamanio de tus inputs crece hacia el infinito, como crece el tiempo de ejecucion de tu programa?
+ *Primer ejemplo: supongamos que tenemos un string, y queremos contar cada caracter asignando un numero. El crecimiento de ese algoritmo sera lineal, porque el tiempo depende de la cantidad de strings. 3 strings tomara 3 inputs de datos, y contar 20 strings tomara el doble que contar 10 strings. Aca la formula resultante sera O(n). Tambien llamado algoritmo de O lineal.
+
+Problema: que pasa si el numero de strings que queremos es demasiado grande como para hacer una busqueda lineal sobre cada string? Tomaria demasiado tiempo.
+
+Entonces, podemos guardar una variable len en la cual guardamos una cantidad de strings que tendria que buscar directamente desde esa variable. Por ello, no tendria que buscar en la string de ninguna manera.
+
+En ese caso, la notacion es O(1), es una notacion asintotica constante. 
+
+Esto es porque incluso si se tiene una string de 1 o 100000 de caracteres, no estariamos buscando en la string, sino en la variable len.
+
+Hay un drawback, que es gastar memoria en una variable, y el tiempo que se tarda tambien en definirla. Aun asi el punto se mantiene porque se mide la ejecucion del algoritmo.
+
+*Despues tenemos los O(n^2). Estos algoritmos pueden ser mas rapidos con menores inputs de datos, pero seran mucho mas lentos (consumiran mas tiempo) a mayores inputs. Son algoritmos que para largo plazo son especialmente lentos, porque eventualmente la parabola crece mas rapido que una funcion lineal (tomar como referencia visual).
+
+*Otra complejidad asintotica en algoritmos es el Tiempo Logaritmico, donde O(log n). Un ejemplo de esta complejidad es el algoritmo de busqueda binaria, que sirve para buscar un elemento en una lista ordenada de elementos. 
+
+--Que hace la busqueda binaria? Supongamos que queremos buscar el 3 en un array. El arreglo es [1, 2, 3, 4, 5, 6, 7]. Con la busqueda binaria, se busca al indice medio del array. Se compara con el numero buscado, y dependiendo del resultado de esa comparacion, se ve si se encontro o si se busca en la parte izquierda o derecha del array. Un algoritmo de busqueda binaria compararia al 3 con el 4, pero como el 4 es mas grande, se fijaria en la mitad izquierda, porque recordemos que el array esta ya ordenado. Y asi va a buscar en [1, 2, 3] partiendo del 2, y asi encontrara finalmente el 3. 
+
+Entonces, dicho esto, para realizar esa operacion en un array de tamano 8, se requieren 3 operaciones (log 2 8, que seria logaritmo de 8 en base a 2). Con un array de 16 indices serian necesarias 4 operaciones (log 2 16, o logaritmo de 16 en base 2).
+
+Entonces, cabria preguntarnos que pasa si la busqueda se termina al primer resultado buscado, independientemente del tamano del array? Ese seria el Best Case, o el mejor caso posible. Con una busqueda binaria, si buscamos en [1, 2, 3, 4, 5, 6, 7] al 4, seria una sola operacion.
+
+A eso se lo llama Omega(1) (no tengo el simbolo de omega).
+
+Seria el mismo caso para una busqueda lineal del 1 en el que el array es [1, 2, 3 ...]. Tambien es un algoritmo del timpo Omega(1).
+
+Despues existe un simbolo mas para poder clasificar eficiencia algoritmica, que seria Theta. Esto ocurre cuando el mayor eficiencia posible y el peor caso posible son el mismo. En ese caso, el algoritmo tuvo una eficiencia de Theta(1).
